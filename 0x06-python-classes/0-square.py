@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
-"""Square class"""
+"""A module in an empty class"""
+
 class Square:
-    """Square class
-    """
+    """Square class"""
     pass
