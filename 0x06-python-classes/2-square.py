@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Module with one class square"""
 
+
 class Square:
     """Square class initializes size of square
-    
     Args:
         size (int): size of square
     Attributes:

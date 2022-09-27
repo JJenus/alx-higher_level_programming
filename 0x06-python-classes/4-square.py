@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """Square module"""
 
+
 class Square:
     """Square class
-    Atrributes:
+
+    Attrributes:
         size (int): size of square
     Args:
         size (int): private size
@@ -16,6 +18,7 @@ class Square:
     @property
     def size(self):
         """int: returns size"""
+
         return self.__size
 
     @size.setter
@@ -28,4 +31,5 @@ class Square:
 
     def area(self):
         """Returns: area of square"""
+
         return self.__size ** 2

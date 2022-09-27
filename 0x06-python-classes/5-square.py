@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """Square module with property setter and getter"""
 
+
 class Square:
     """setter and getter and print square #
+
     Args:
         size (int): size of square
     Attributes:
@@ -34,6 +36,7 @@ class Square:
         """Prints square of #
         Returns: None
         """
+
         if self.__size == 0:
             print()
             return None
