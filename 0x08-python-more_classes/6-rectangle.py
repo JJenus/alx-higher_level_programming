@@ -10,9 +10,9 @@ class Rectangle:
         """Initialize a new Rectangle.
         Args:
             width (int): The width of the new rectangle.
-            height (int): The height of the new rectangle.
+        php height (int): The height of the new rectangle.
         """
-        number_of_instances += 1
+        Rectangle.number_of_instances += 1
         self.width = width
         self.height = height
 
@@ -72,5 +72,5 @@ class Rectangle:
 
     def __del__(self):
         """Called on delete"""
-        number_of_instances -= 1
+        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
