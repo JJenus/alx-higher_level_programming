@@ -7,5 +7,5 @@ def read_file(filename=""):
     Args:
         filename (str): location/path
     """
-    with open(filename, "w", encoding="UTF-8") as f:
+    with open(filename, "r", encoding="UTF-8") as f:
         print(f.read())
