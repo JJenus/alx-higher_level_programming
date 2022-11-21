@@ -1,34 +1,42 @@
 #!/usr/bin/python3
-""" Divid matrix elements module"""
+"""
+    2-matrix_divided Module
+"""
 
 
 def matrix_divided(matrix, div):
-    """matrix_divided
-    Args:
-        matrix (:obj of `list`: )"""
+    """
+        Divides all elements of a matrix
+
+        Args:
+            matrix: intial 2D list
+            div: integer which is the divisor
+
+        Returns:
+            New matrix containing the divided elements
+            rounded to 2 decimal places
+    """
+    prev_len = 0
+    error_mess = "matrix must be a matrix (list of lists) of integers/floats"
+    if type(matrix) is not list:
+        raise TypeError(error_mess)
+
+    for block in matrix:    # matrix is a list
+        if type(block) is not list:
+            raise TypeError(error_mess)
+
+        for element in block:
+            if type(element) is not int and type(element) is not float:
+                raise TypeError(error_mess)
+
+        if len(block) != prev_len and prev_len != 0:
+            raise TypeError("Each row of the matrix must have the same size")
+        prev_len = len(block)
+
+    if type(div) is not int and type(div) is not float:
+        raise TypeError("div must be a number")
+
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    if type(div) not in [int, float]:
-        raise TypeError("div must be a number")
-    if type(matrix) is not list or matrix == []:
-        raise TypeError(
-                "matrix must be a matrix (list of lists)"
-                " of integers/floats")
-    n_mat = []
-    for row in matrix:
-        if type(row) is not list:
-            raise TypeError(
-                    "matrix must be a matrix (list of lists) of"
-                    " integers/floats")
-        if len(row) != len(matrix[0]):
-            raise TypeError(
-                    "Each row of the matrix must have the same size")
-        n_row = []
-        for i in row:
-            if type(i) not in [float, int]:
-                raise TypeError(
-                        "matrix must be a matrix (list of lists)"
-                        " of integers/floats")
-            n_row.append(float("{:.2f}".format(i/div)))
-        n_mat.append(n_row)
-    return n_mat
+
+    return [[round(elem / div, 2) for elem in row] for row in matrix]

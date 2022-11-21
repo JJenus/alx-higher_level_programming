@@ -1,58 +1,74 @@
 #!/usr/bin/python3
-"""class module"""
+""" Square module """
 
 
 class Square:
-    """class Square
-    Atttributes:
-        size (int): size of square
-        position (:obj:`tuple` of :obj:`int`): position
-    """
-    __size = 0
-    __position = ()
+    """ Declares a square class """
 
-    def __init__(self, size=0, position=(0, 0)):
+    def __init__(self, size=0, position=(0, 0)) -> None:
+        """
+        Intializes the attributes
+
+        Args:
+            size: size of square
+            position:  position of square
+        """
         self.size = size
         self.position = position
 
     @property
     def size(self):
+        """ Gets the private attribute to be used in class """
         return self.__size
 
     @size.setter
     def size(self, value):
         if type(value) is not int:
             raise TypeError("size must be an integer")
-        if value < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
+        else:
+            self.__size = value
 
     @property
     def position(self):
-        """:obj:`tuple` of :obj:`int`: size of square"""
+        """ Gets the private attribute to be used in class """
         return self.__position
 
     @position.setter
     def position(self, value):
-        if (type(value) is not tuple
-                or type(value[0]) is not int or type(value[1]) is not int):
+        if type(value) is not tuple or len(value) != 2:
             raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
+        elif type(value[0]) is not int or value[0] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif type(value[1]) is not int or value[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        else:
+            self.__position = value     # tuple contains 2 positive integers
 
     def area(self):
-        """Returns: area of square"""
+        """ Computes area of a square """
         return self.__size ** 2
 
     def my_print(self):
-        """Returns: None"""
+        """ Prints in stdout the square with the character # """
         if self.__size == 0:
             print()
-            return None
+        else:
+            integer = 0
+            pos1, pos2 = self.__position
+            for new_line in range(pos2):
+                print()
+            while integer < self.__size:
 
-        for i in range(self.__size):
-            if self.__position[1] <= 0 or self.__position[1] == 1:
-                for i in range(self.__position[0]):
-                    print("_", end="")
-            for x in range(self.__size):
-                print('#', end="")
-            print()
+                j = 0
+                while j < pos1:
+                    print(" ", end='')  # replace position with space
+                    j += 1
+
+                number = 0
+                while number < self.__size:
+                    print("{}".format("#"), end='')
+                    number += 1
+                print()
+                integer += 1

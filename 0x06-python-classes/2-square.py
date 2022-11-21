@@ -1,18 +1,21 @@
 #!/usr/bin/python3
-"""Module with one class square"""
+""" Square module """
 
 
 class Square:
-    """Square class initializes size of square
-    Args:
-        size (int): size of square
-    Attributes:
-        size (int): private size of size
-    """
+    """ Declares a square class """
 
-    def __init__(self, size=0):
+    def __init__(self, size=0) -> None:
+        """
+        Intializes class attributes
+
+        Args:
+            size:   size of square
+        """
+
         if type(size) is not int:
             raise TypeError("size must be an integer")
-        if size < 0:
+        elif size < 0:
             raise ValueError("size must be >= 0")
-        self.__size = size
+        else:
+            self.__size = size
